@@ -1,8 +1,8 @@
 from core.network import Network
 from train_datas import vocab_size,data,encode,id2word
-
+import os
+path = os.path.dirname(os.path.abspath(__file__))
 def createModel(vocab_size,data,epochCount=2000,s=100):
-    import os
     os.system("clear")
     print("=== Create Model ===")
     net = Network(
@@ -17,7 +17,7 @@ def createModel(vocab_size,data,epochCount=2000,s=100):
     step=s,
     )
 
-    net.save("1.0.2/mehen/model.qai")
+    net.save(path+"model.qai")
     return net
     
 def startModel(net):
@@ -42,5 +42,3 @@ def startModel(net):
             generated += " " + word
             seq = encode(generated)
 
-if __name__ == "__main__":
-    net = createModel(vocab_size,data=data,s=1)
