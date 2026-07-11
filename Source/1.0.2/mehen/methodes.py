@@ -2,22 +2,20 @@ from core.network import Network
 from train_datas import vocab_size,data,encode,id2word
 import os
 path = os.path.dirname(os.path.abspath(__file__))
-def createModel(vocab_size,data,epochCount=2000,s=100):
+def createModel(vocab_size,data,epochCount=2000,s=100,dim=64,lr=0.01,hidden=128):
     os.system("clear")
     print("=== Create Model ===")
     net = Network(
         vocab_size=vocab_size,
-        dim=128,
-        lr=0.01,
-        ff_hidden=128,
+        dim=dim,
+        lr=lr,
+        ff_hidden=hidden,
     )
     print("=== Training ===")
     loss = net.train(data,
     epochs=epochCount+1,
     step=s,
-    )
-
-    net.save(path+"model.qai")
+    )   
     return net
     
 def startModel(net):
