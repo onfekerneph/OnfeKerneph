@@ -151,6 +151,8 @@ datas = [
     (["coffee"], "is"),
     (["coffee", "is"], "hot"),
     (["coffee", "is", "hot"], "esc"),
+    #how am i said
+    (["how","am","i"],"said")
     
 ]
 for words, next_word in datas:

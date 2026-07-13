@@ -1,5 +1,4 @@
 
-
 class Phrase:
     def __init__(self,word:str,l:str):
         self.root = word
@@ -29,16 +28,13 @@ class Order(Expression):
     def __init__(self):
         super().__init__()
 
-
-
 class Subject(Phrase):
     def __init__(self, word, l,person:int=1,plural=False):
         super().__init__(word,l)
         self.subject = (person,plural)
 
-
 class Verb(Phrase):
-    def __init__(self, word, l,exp=Present(),subject:tuple[int,bool]=(1,False)):
+    def __init__(self, word, l,exp=Order(),subject:tuple[int,bool]=(1,False)):
         super().__init__(word, l)
         self.expr = exp
         self.subject = subject
