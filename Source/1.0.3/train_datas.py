@@ -48,7 +48,7 @@ words = [
 "firstly", "fish", "fit", "fix", "flow", "focus", "follow", "force", "foreign", "forget", "form", "forward", 
 "found", "frame", "freedom", "fruit", "full", "future", "gain", "gas", "general", "gentle", "girl", "global", 
 "goal", "gold", "goodbye", "government", "grass", "great", "ground", "group", "grow", "growth", "guide", "hair", 
-"half", "hand", "handle", "hang", "happen", "hard", "harm", "hate", "head", "health", "hear", "heart", 
+"half", "hand", "handle", "hang", "happen", "hard", "harm", "hate", "head", "health", "hear", "heart","did",
 "heat", "heavy", "helpful", "high", "history", "hold", "holiday", "hope", "horse", "huge", "human", "hungry", 
 "identify", "ignore", "image", "imagine", "immediate", "important", "improve", "include", "increase", "indeed", "indicate", "individual", 
 "industry", "inform", "interest", "international", "introduce", "invest", "invite", "issue", "item", "january", "join", "judge", 
@@ -69,10 +69,10 @@ words = [
 "remember", "remove", "report", "represent", "request", "require", "research", "resource", "respond", "response", "result", "reveal", 
 "rich", "rise", "risk", "role", "rule", "sale", "same", "save", "scene", "schedule", "science", "score", 
 "sea", "search", "seat", "section", "security", "seek", "seem", "select", "sense", "series", "serve", "service", 
-"set","sets",""
+"set","sets","stupid",
 "someone", "something", "song", "soon", "sort", "source", "south", "space", "speak", "special", "specific", "speech", 
 "spend", "sport", "staff", "stage", "standard", "state", "station", "stay", "step", "stock", "straight", "strategy", 
-"strong", "structure", "stuff", "style", "subject", "success", "such", "suddenly", "suffer", "suggest", "support", "sure", 
+"strong", "structure", "stuff", "style", "subject", "success", "such", "suddenly", "suggest", "support", "sure", 
 "surface", "system", "talk", "target", "task", "team", "tech", "technology", "temperature", "term", "test", "text", 
 "than", "thank", "that", "the", "their", "them", "themselves", "these", "thing", "third", "this", "those", 
 "though", "thought", "thousand", "threat", "through", "throughout", "throw", "thus", "together", "tonight", "total", "touch", 
@@ -81,15 +81,12 @@ words = [
 "wave", "way", "weapon", "wear", "weight", "well", "west", "whatever", "wheel", "whether", "which", "while", 
 "whole", "why", "wide", "wife", "wild", "will", "win", "wish", "within", "without", "woman", "wonder", 
 "word", "worker", "world", "worry", "worth", "would", "wrong", "youth", "zero", "zone",
- "orange", "purple", "math", "history", "science", "keyboard", "mouse", "screen", "laptop", "holiday","okay",""
+ "orange", "purple", "math", "history", "science", "keyboard", "mouse", "screen", "laptop", "holiday","okay"
 ]
 
 numbers = list(range(0,len(words)))
 word2id = {a:b for a,b in zip(words,numbers)}
 
-if __name__ == "__main__":
-    print(word2id)
-    
 id2word = {v: k for k, v in word2id.items()}
 vocab_size = len(word2id)
 
@@ -99,7 +96,7 @@ def encode(text):
 # TRAINING DATA
 data = [ ]
 
-datas = [
+datasd = [
     (["how", "are", "you"], "fine"),
     (["how", "are", "you", "fine"], "esc"),
     (["how", "are", "you"], "good"),
@@ -148,11 +145,15 @@ datas = [
     (["coffee", "is"], "hot"),
     (["coffee", "is", "hot"], "esc"),
     #how am i said
-    (["how","am","i"],"said")
+    (["how","am","i"],"esc"),
+    (["how","did","i","said"],"esc"),
+    (["i","have","been"],"taken"),
+    (["you","have"],"knew"),
+    (["you","are"],"stupid"),
+    (["you","are","stupid"],"esc")
     
 ]
-for words, next_word in datas:
+for words, next_word in datasd:
     seq = [word2id[w] for w in words]
     next_word_id = word2id[next_word]
     data.append((seq, next_word_id))
-

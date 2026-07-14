@@ -6,7 +6,6 @@ import math
 import random
 import pickle
 
-
 class Network:
     def __init__(self,vocab_size=4,dim=16,lr=0.005,ff_hidden=128):
         self.vocab = vocab_size
@@ -182,7 +181,7 @@ class Network:
                 f"\r[{bar:<50}] "
                 f"%{math.floor(epoch/epochs*100)} "
                 f"epoch:{epoch} "
-                f"loss:{round(total,4)}",
+                f"loss:{round(total,4)} "
                 f"plusmod:{round(m,5)}",
                 end="",
                 flush=True,

@@ -8,7 +8,8 @@ def createModel(vocab_size,data:list=data,epochCount=2000,s=100,dim=64,lr=0.01,h
     print("==== Create Model ====")
     net = Network(
         vocab_size=vocab_size,
-        dim=dim,lr=lr,
+        dim=dim,
+        lr=lr,
         ff_hidden=hidden,
     )
     print("=== Training ===")
@@ -40,4 +41,3 @@ def startModel(net):
             print("Bot:", word)
             generated += " " + word
             seq = encode(generated)
-
