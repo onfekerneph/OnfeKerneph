@@ -34,7 +34,12 @@ class Subject(Phrase):
         self.subject = (person,plural)
 
 class Verb(Phrase):
-    def __init__(self, word, l,exp=Order(),subject:tuple[int,bool]=(1,False)):
+    def __init__(self, word, l,exp=Order(),subject=(1,False)):
         super().__init__(word, l)
         self.expr = exp
-        self.subject = subject
+        self.subject = Subject(word,l,subject[0],subject[1])
+
+class Name(Phrase):
+    def __init__(self, word, l,pr=False):
+        super().__init__(word,l)
+        self.private = pr

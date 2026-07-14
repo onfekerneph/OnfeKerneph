@@ -81,8 +81,7 @@ words = [
 "wave", "way", "weapon", "wear", "weight", "well", "west", "whatever", "wheel", "whether", "which", "while", 
 "whole", "why", "wide", "wife", "wild", "will", "win", "wish", "within", "without", "woman", "wonder", 
 "word", "worker", "world", "worry", "worth", "would", "wrong", "youth", "zero", "zone",
- "orange", "purple", "math", "history", "science", "keyboard", "mouse", "screen", "laptop", "holiday", 
- "beach", "garden", "window", "mirror", "piano", "guitar", "rocket", "planet","okay",""
+ "orange", "purple", "math", "history", "science", "keyboard", "mouse", "screen", "laptop", "holiday","okay",""
 ]
 
 numbers = list(range(0,len(words)))
@@ -98,10 +97,7 @@ def encode(text):
     return [word2id[w] for w in text.split() if w in word2id]
 
 # TRAINING DATA
-data = [
-    
-    
-]
+data = [ ]
 
 datas = [
     (["how", "are", "you"], "fine"),

@@ -3,7 +3,7 @@ from train_datas import vocab_size,data,encode,id2word
 import os
 path = os.path.dirname(os.path.abspath(__file__))
 
-def createModel(vocab_size,data,epochCount=2000,s=100,dim=64,lr=0.01,hidden=128):
+def createModel(vocab_size,data:list=data,epochCount=2000,s=100,dim=64,lr=0.01,hidden=128):
     os.system("clear")
     print("==== Create Model ====")
     net = Network(

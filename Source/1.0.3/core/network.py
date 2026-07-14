@@ -170,13 +170,11 @@ class Network:
         summ = []
         ls = []
         m = 0.0
-        tot = 0
         width = len(str(epochs))
         for epoch in range(epochs):
             total = 0.0
             for seq, target in data:
                 total += self.train_step(seq,target)
-            tot = total
             summ.append(total)
             progress = int(epoch / epochs * 50)
             bar = "#" * progress
